@@ -16,8 +16,7 @@ def pdf_processor(pdf_file):
     if not result or not result.get("outline"):
         result = build_outline_heuristic(doc)
     output_filename = Path(pdf_file).with_suffix('.json').name
-    output_filepath = Path("/app/output")
-    print("DUMPING")
+    output_filepath = Path("/app/output") / output_filename
     # Write the resulting dictionary to the JSON file
     with open(output_filepath, 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
@@ -31,8 +30,6 @@ def process_pdfs():
     pdf_files = list(input_dir.glob("*.pdf"))
     with ThreadPoolExecutor(max_workers=8) as executor:
         results = list(executor.map(pdf_processor, pdf_files))
-    # print("All processing complete.")
-    # print("Results:", results)
 
 if __name__ == "__main__":
     print("Starting processing pdfs")
