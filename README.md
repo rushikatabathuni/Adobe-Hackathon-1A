@@ -1,12 +1,8 @@
 # PDF Outline Extractor - Adobe Hackathon Round 1A
 
-## Overview
-
-This solution extracts structured outlines from PDF documents, identifying titles and hierarchical headings (H1, H2, H3) with high accuracy and speed. Built for the "Connecting the Dots" Adobe Hackathon Challenge Round 1A.
-
 ## Approach
 
-Our solution employs a hybrid approach combining embedded Table of Contents (TOC) extraction with advanced heuristic analysis:
+A hybrid approach combining embedded Table of Contents (TOC) extraction with advanced heuristic analysis:
 
 ### 1. **Embedded TOC Extraction**
 - First attempts to extract the document outline from the PDF's embedded Table of Contents
@@ -22,10 +18,8 @@ When embedded TOC is unavailable, the system uses sophisticated heuristics:
 - **Smart Filtering**: Excludes bullet points, numbered lists, and paragraph text using pattern recognition
 
 ### 3. **Key Features**
-- **Robust Pattern Recognition**: Handles various document formats and styles
 - **Multi-language Support**: Works with documents in different languages including Japanese
 - **Performance Optimized**: Parallel processing with ThreadPoolExecutor for multiple PDFs
-- **Error Handling**: Comprehensive error management and graceful fallbacks
 
 ## Libraries Used
 
@@ -68,7 +62,6 @@ docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --networ
 
 ### Input
 - PDF files placed in `/app/input` directory
-- Supports PDFs up to 50 pages
 
 ### Output
 - JSON files generated in `/app/output` directory
@@ -86,20 +79,6 @@ docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --networ
 }
 ```
 
-## Performance Characteristics
-
-- **Speed**: Processes typical documents in 2-5 seconds
-- **Accuracy**: High precision/recall for heading detection across diverse document types
-- **Scalability**: Parallel processing handles multiple PDFs efficiently
-- **Memory**: Optimized for 16GB RAM systems with 8 CPU cores
-
-## Technical Highlights
-
-1. **Smart Title Detection**: Uses position, font size, centering, and content analysis
-2. **Anti-Pattern Recognition**: Filters out bullet points, numbered lists, and paragraph text
-3. **Style Clustering**: Groups similar visual elements to determine heading hierarchy
-4. **Fallback Mechanisms**: Multiple extraction strategies ensure robust performance
-5. **Modular Design**: Clean separation of concerns for maintainability and extensibility
 
 ## File Structure
 
@@ -107,9 +86,8 @@ docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --networ
 .
 ├── Dockerfile
 ├── README.md
-├── main.py          # Entry point and PDF processing orchestration
+├── process_pdfs.py          # Entry point and PDF processing orchestration
 ├── utils.py         # Core extraction and analysis utilities
 └── requirements.txt # Dependencies
 ```
 
-This solution provides a solid foundation for advanced document intelligence applications, enabling semantic search, content recommendation, and automated insight generation from PDF documents.
