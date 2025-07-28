@@ -18,7 +18,7 @@ When embedded TOC is unavailable, the system uses sophisticated heuristics:
 - **Smart Filtering**: Excludes bullet points, numbered lists, and paragraph text using pattern recognition
 
 ### 3. **Key Features**
-- **Multi-language Support**: Works with documents in different languages including Japanese
+- **Multi-language Support**: Works with documents in different languages
 - **Performance Optimized**: Parallel processing with ThreadPoolExecutor for multiple PDFs
 
 ## Libraries Used
